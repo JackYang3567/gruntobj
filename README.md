@@ -1,0 +1,1 @@
+a grunt object config
