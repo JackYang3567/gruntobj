@@ -86,13 +86,21 @@ module.exports = function(grunt) {
      }
     });
     // 加载插件
-    grunt.loadNpmTasks('grunt-contrib-csslint');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    // 默认任务
-    grunt.registerTask('default', ['csslint','concat','cssmin','imagemin','jshint','uglify']);
+   [
+        'grunt-contrib-csslint',
+        'grunt-contrib-concat',
+        'grunt-contrib-cssmin',
+        'grunt-contrib-imagemin',
+        'grunt-contrib-jshint',
+        'grunt-contrib-uglify',
+        'grunt-contrib-watch',
+    ].forEach(function (task) {
+        grunt.loadNpmTasks(task);
+    })
+    // 默认任务用于后端（服务器端）
+    grunt.registerTask('default', ['jshint',]);
+    //静态任务用于前端静态资源
+    grunt.registerTask('static', ['csslint','concat','cssmin','imagemin','jshint','uglify']);
+    //监控
+    grunt.registerTask('watch', ['watch',]);
 };
