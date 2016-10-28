@@ -85,7 +85,7 @@ module.exports = function(grunt) {
         }
      }
     });
-    // 加载插件mmmmmm
+    // 加载插件
 
 
 
