@@ -86,7 +86,10 @@ module.exports = function(grunt) {
      }
     });
     // 加载插件
-   [
+
+
+    
+    [
         'grunt-contrib-csslint',
         'grunt-contrib-concat',
         'grunt-contrib-cssmin',
@@ -103,4 +106,5 @@ module.exports = function(grunt) {
     grunt.registerTask('static', ['csslint','concat','cssmin','imagemin','jshint','uglify']);
     //监控
     grunt.registerTask('watch', ['watch',]);
+};
 };
